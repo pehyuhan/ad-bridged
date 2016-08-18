@@ -60,6 +60,17 @@
 
     <%= yield %>
 
+<div class="container">
+  <div class='col-sm-6 col-sm-offset-3'>
+    <% if flash[:notice] %>
+      <div class="alert alert-info"><%= flash[:notice] %></div>
+        <% end %>
+    <% if flash[:error] %>
+      <div class="alert alert-danger"><%= flash[:error] %></div>
+        <% end %>
+  </div>
+</div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -94,13 +105,5 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     
-    <div class="container">
-  <% if flash[:notice] %>
-    <div class="alert alert-info"><%= flash[:notice] %></div>
-  <% end %>
-  <% if flash[:error] %>
-    <div class="alert alert-danger"><%= flash[:error] %></div>
-  <% end %>
-
 </body>
 </html>

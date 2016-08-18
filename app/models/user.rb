@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   validates_format_of     :email, with: /@/
   validates_uniqueness_of :email, case_sensitive: false
   validates_length_of     :password, minimum: 6
+  
+  has_many :post
 
   before_save { self.email = email.downcase }
 end
