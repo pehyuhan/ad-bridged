@@ -1,0 +1,62 @@
+zh:
+  posts:
+    index:
+      enquiries: "查询"
+      ad_bridged: "广告_通"
+      tag_line: "轻松通往世界各地广告平台的桥梁"
+      ad_platforms: "广告平台"
+      connect: "关注广告_通:"
+      new_post: "添新"
+      ago: " "
+    new:
+      all_tags: "标签"
+      all_tags_placeholder: "用逗号分隔标签"
+      choose_an_image: "选择图像"
+      create_post: "提交"
+
+  datetime:
+    distance_in_words:
+      less_than_x_seconds: '不久前'
+      half_a_minute: '不久前'
+      less_than_x_minutes: '不久前'
+      x_minutes: '%{count}分钟前'
+      about_x_hours: '%{count}小时前'
+      x_days: '%{count}天前'
+      about_x_mouths: '%{count}月前'
+      x_mouths: '%{count}月前'
+      about_x_years: '%{count}年前'
+      over_x_years: '%{count}年前'
+      almost_x_years: '%{count}年前'
+      
+  activerecord:
+    attributes:
+      post:
+        company_name: "公司名称"
+        ad_type: "广告类型"
+        country_code: "地理位置"
+        number_of_enquiries: "查询数目"
+        platform_type: "广告平台"
+      user:
+        email: "电邮地址"
+        password: "密码"
+        password_confirmation: "确认密码"
+        name: "姓名"
+
+  layouts:
+    application:
+      new_post: "添新"
+      sign_out: "退出"
+      sign_up: "注册"
+      sign_in: "登入"
+      home: "首页"
+      about: "关于广告通"
+      services: "服务内容"
+      contact: "联系我们"
+  
+  sessions:
+    new:
+      sign_in: "登入"
+      
+  users:
+    new:
+      sign_up: "注册"

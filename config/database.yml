@@ -1,0 +1,24 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+  # Important configs for cloud9, change password value
+  # to what you entered in the previous psql step.
+  template: template0
+  username: ubuntu
+  password: password
+
+development:
+  <<: *default
+  database: your_app_name_development
+
+test:
+  <<: *default
+  database: your_app_name_test
+
+production:
+  <<: *default
+  database: your_app_name_production
+  username: your_app_name
+  password: <%= ENV['YOUR_APP_NAME_DATABASE_PASSWORD'] %>
