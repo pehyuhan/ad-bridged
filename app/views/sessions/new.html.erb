@@ -17,10 +17,11 @@
           <div>
             <%= f.submit t('.sign_in', default: "Sign In"), class: 'btn btn-success' %>
           </div>
-      <% end %>
+        <% end %>
+          <br>
+          <br>
+          <p><%= t('.new_user', default: "New user?")%> <%= link_to t('.sign_up_now', default: "Sign up now!"), sign_up_path %></p>
       </div>
     </div>
   </div>
 </div>
-
-  

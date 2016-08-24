@@ -7,7 +7,12 @@ scope ":locale", locale: /#{I18n.available_locales.join("|")}/  do
     root to: redirect("/%{locale}/posts", status: 302)
     
     resources :users
+    
+    match '/sign_up',  to: 'users#new',            via: 'get'
 
+    resources :sessions, only: [:new, :create, :destroy]
+    #root  'static_pages#home'
+    
     get    'sign_in'   => 'sessions#new'
     post   'sign_in'   => 'sessions#create'
     delete 'sign_out'  => 'sessions#destroy'

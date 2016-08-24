@@ -187,3 +187,24 @@ p.copyright {
 .new-post {
     text-align: right;
 }
+
+.descriptions {
+    background-color: rgba(0,0,0,0);
+    width: 100%;
+    height: 100px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid grayLighter;
+    &:last-child {
+      border-bottom: 1px solid grayLighter;
+    }
+  }
+}

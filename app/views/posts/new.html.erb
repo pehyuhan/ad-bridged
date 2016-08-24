@@ -2,17 +2,20 @@
   <div class="container">
     <div class='row'>
       <div class='col-sm-6 col-sm-offset-3'>
-        <%= form_for @post do |f| %>
-          <% if @post.errors.any? %>
-            <div class='alert alert-danger'>
-              <ul>
-                <% @post.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
-    
+        <% if @post.errors.any? %>
+          <div class="alert alert-danger text-center">
+            The form contains <%= pluralize(@post.errors.count, "error") %>!
+          </div>
+          <div class='alert alert-danger'>
+            <ul>
+              <% @post.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <%= form_for(@post) do |f| %>
           <div class='form-group text-center'>
             <%= f.hidden_field :image_url, role: 'uploadcare-uploader', data: {crop: '700x400 upscale', 'images-only' => true} %>
           </div>
@@ -26,12 +29,12 @@
           
           <div class='form-group'>
             <%= f.label Post.human_attribute_name(:platform_type) %>
-            <%= f.select(:platform_type, options_for_select([['Website', 'Website'], ['Mobile', 'Mobile'], ['TV', 'TV'], ['Prints','Prints']]), { include_blank: true }, {class: 'form-control'}) %>
+            <%= f.select(:platform_type, options_for_select(platform_type), { include_blank: true }, {class: 'form-control'}) %>
           </div>
           
           <div class='form-group'>
             <%= f.label Post.human_attribute_name(:ad_type) %>
-            <%= f.select(:ad_type, options_for_select([['Banners', 'Banners'], ['Pop-Ups', 'Pop-Ups'], ['Articles', 'Articles'], ['Videos','Videos']]), { include_blank: true }, {class: 'form-control'}) %>
+            <%= f.select(:ad_type, options_for_select(ad_type), { include_blank: true }, {class: 'form-control'}) %>
           </div>
           <div class='form-group'>
             <%= f.label Post.human_attribute_name(:country_code) %>
@@ -41,6 +44,10 @@
             <%= f.label Post.human_attribute_name(:number_of_enquiries) %>
             <%= f.text_field :number_of_enquiries, class: 'form-control' %>
           </div>
+          <div class='form-group'>
+            <%= f.label Post.human_attribute_name(:descriptions) %>
+            <%= f.text_field :descriptions, class: 'form-control' %>
+          </div>          
           <div class='form-group'>
             <%= f.label t('posts.new.all_tags', default: "All Tags") %>
             <%= f.text_field :all_tags, placeholder: t('.all_tags_placeholder', default: "Tags seperated with coma"), class: 'form-control' %>

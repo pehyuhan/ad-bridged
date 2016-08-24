@@ -66,10 +66,15 @@
                         <%= link_to icon('trash-o'), post_path(post), method: :delete, data: { confirm: 'Are you sure you want to delete this Post?'} %>
                     <% end %>
                 </div>
+
+                <div class="col-sd-6 portfolio-item">
+                    <%= Post.human_attribute_name(:platform_type) %>：
+                    <%= platform_type_to_s(post.platform_type) %>
+                </div>
                 
                 <div class="col-sd-6 portfolio-item">
                     <%= Post.human_attribute_name(:ad_type) %>：
-                    <%= post.ad_type %>
+                    <%= ad_type_to_s(post.ad_type) %>
                 </div>
                 <div class="col-sd-6 portfolio-item">
                     <%= icon('map-marker') %>  <%= post.country_code %>
@@ -77,6 +82,14 @@
                 <div class="col-sd-6 portfolio-item">
                     <%= Post.human_attribute_name(:number_of_enquiries) %>：
                     <%= post.number_of_enquiries %> <%= t "posts.index.enquiries" %>
+                </div>
+                <br>
+                <div class="descriptions">
+                <div class="col-sd-6 portfolio-item">
+                    <%= Post.human_attribute_name(:descriptions) %>：
+                    <br>
+                    <%= post.descriptions %>
+                </div>
                 </div>
                 <br>
                 <div class="col-sd-6 portfolio-item">
@@ -95,27 +108,7 @@
         <div class="row text-center">
             <div class="col-lg-12">
                 <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
+                    <%= paginate @posts %>
                 </ul>
             </div>
         </div>

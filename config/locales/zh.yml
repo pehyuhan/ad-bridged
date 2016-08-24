@@ -1,4 +1,14 @@
 zh:
+  platform_type:
+    1: 网站
+    2: 移动端
+    3: 电视
+    4: 平面
+  ad_type:
+    1: 横幅
+    2: 插屏
+    3: 文章
+    4: 视频
   posts:
     index:
       enquiries: "查询"
@@ -13,6 +23,14 @@ zh:
       all_tags_placeholder: "用逗号分隔标签"
       choose_an_image: "选择图像"
       create_post: "提交"
+      #website: "网站"
+      #mobile: "移动端"
+      #tv: "电视"
+      #prints: "平面"
+      #banners: "横幅"
+      #pop_ups: "插屏"
+      #articles: "文章"
+      #videos: "视频"
 
   datetime:
     distance_in_words:
@@ -36,6 +54,7 @@ zh:
         country_code: "地理位置"
         number_of_enquiries: "查询数目"
         platform_type: "广告平台"
+        descriptions: "说明"
       user:
         email: "电邮地址"
         password: "密码"
@@ -44,19 +63,37 @@ zh:
 
   layouts:
     application:
+      ad_bridged: "广告_通"
       new_post: "添新"
       sign_out: "退出"
       sign_up: "注册"
       sign_in: "登入"
       home: "首页"
-      about: "关于广告通"
+      about: "关于广告_通"
       services: "服务内容"
       contact: "联系我们"
   
   sessions:
     new:
       sign_in: "登入"
+      sign_up: "注册"
+      sign_up_now: "立即注册"
+      new_user: "新用户?"
       
   users:
     new:
       sign_up: "注册"
+    edit:
+      update_profile: "更改用户资料"
+      change: "更改"
+      save_changes: "保存"
+      
+  website: 网站
+  mobile: 移动端
+  tv: 电视
+  prints: 平面
+  others: 其他
+  banners: 横幅
+  pop-ups: 插屏
+  articles: 文章
+  videos: 视频

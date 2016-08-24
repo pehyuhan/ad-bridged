@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :signed_in_user, only: [:create, :destroy]
    
   def index
     if params[:tag]
@@ -6,19 +7,21 @@ class PostsController < ApplicationController
     else
       @posts = Post.all
     end
+      @posts = @posts.order(created_at: :desc).paginate(page:params[:page], per_page: 6 )
   end
-    
+
     def new
         @post = Post.new
     end
     
     def create
-      @post = Post.new(post_params)
-        if @post.save
-          redirect_to @post, notice: 'You have successfully posted!'
-        else
-          render :new
-        end
+      @post = current_user.posts.build(post_params)
+      if @post.save
+        flash[:success] = "Post created!"
+        redirect_to @post
+      else
+        render :new #'static_pages/home'
+      end
     end
     
       def show
@@ -32,9 +35,14 @@ class PostsController < ApplicationController
         redirect_to posts_path
       end
       
-    private
-      def post_params
-        params.require(:post).permit(:company_name, :ad_type, :country_code, :number_of_enquiries, :all_tags, :image_url)
-      end
-        
+      private
+      
+        def post_params
+          params.require(:post).permit(:company_name, :ad_type, :country_code, :number_of_enquiries, :all_tags, :image_url, :descriptions, :platform_type)
+        end
+
+        def signed_in_user
+          redirect_to signin_url, notice: "Please sign in." unless signed_in?
+        end
+  
 end
