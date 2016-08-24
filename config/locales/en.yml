@@ -21,15 +21,15 @@
 
 en:
   platform_type:
-    1: website
-    2: mobile
-    3: tv
-    4: prints
+    1: Website
+    2: Mobile
+    3: TV
+    4: Prints
   ad_type:
-    1: banners
-    2: pop_ups
-    3: articles
-    4: videos
+    1: Banners
+    2: Pop_Ups
+    3: Articles
+    4: Videos
     
   views:
     pagination:

@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
     
     belongs_to :user
     default_scope -> { order(created_at: :desc) }
-    validates_presence_of :company_name, :ad_type, :country_code, :image_url
+    validates_presence_of :company_name, :ad_type, :country_code, :image_url, :all_tags, :platform_type
     validates :user_id, presence: true
     validates :descriptions, presence: true, length: { maximum: 260 }
 
