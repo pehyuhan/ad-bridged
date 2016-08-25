@@ -17,6 +17,12 @@ scope ":locale", locale: /#{I18n.available_locales.join("|")}/  do
     post   'sign_in'   => 'sessions#create'
     delete 'sign_out'  => 'sessions#destroy'
     
+    controller :pages do
+      get :about
+      get :contact
+      get :terms_and_conditions
+end
+    
 end
 
     root to: redirect("/#{I18n.default_locale}", status: 302), as: :redirected_root
