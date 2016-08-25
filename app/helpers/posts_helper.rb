@@ -51,4 +51,5 @@ module PostsHelper
       I18n.t("others", default: "Others")
     end
   end
+  
 end
