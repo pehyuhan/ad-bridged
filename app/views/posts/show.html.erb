@@ -6,7 +6,8 @@
           <div class='panel-heading'>
             <div class='row'>
               <div class='col-sm-8'>
-                <%= current_user.name %>
+
+                <%= @post.user.name %>
               </div>
               <div class='col-sm-12 text-right'>
                 <span class='created_at'><%= link_to time_ago_in_words(@post.created_at), post_path(@post) %></span>
