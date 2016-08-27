@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
 
-  validates_presence_of   :name, :email, :password
+  validates_presence_of   :name, :email, :password, :image_url
   validates_format_of     :email, with: /@/
   validates_uniqueness_of :email, case_sensitive: false
   validates_length_of     :password, minimum: 6

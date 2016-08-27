@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
+    @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation, :image_url))
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to Ad_Bridged!"

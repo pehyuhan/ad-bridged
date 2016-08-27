@@ -38,8 +38,10 @@
                 <br>
                 <br>
             
-                <%= gravatar_for @user %>
-                <a href="http://gravatar.com/emails" target="_blank"> <%= t('.change', default: "change") %></a>
+                <%#= gravatar_for @user %>
+                <%= image_tag @user.image_url %>
+                <%#= link change...??? %>
+                <a href="#" target="_blank"> <%= t('.change', default: "change") %></a>
                 
                 <br>
                 <br>
