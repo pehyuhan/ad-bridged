@@ -16,6 +16,10 @@
         <% end %>
     
         <%= form_for(@user) do |f| %>
+          <div class='form-group text-center'>
+            <%= f.hidden_field :image_url, role: 'uploadcare-uploader', data: {crop: '100x100 upscale', 'images-only' => true} %>
+          </div>
+        
           <div class='form-group'>
             <%= f.label User.human_attribute_name(:name) %>
             <%= f.text_field :name, class: 'form-control' %>

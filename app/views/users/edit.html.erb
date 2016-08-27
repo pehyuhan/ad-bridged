@@ -38,8 +38,10 @@
                 <br>
                 <br>
             
-                <%= gravatar_for @user %>
-                <a href="http://gravatar.com/emails" target="_blank"> <%= t('.change', default: "change") %></a>
+                <a href="#">
+                  <img class="img-responsive" <%= image_tag @user.image_url %>
+                </a>
+                <a href="#" target="_blank"> <%= t('.change', default: "change") %></a> <%#= Add "Image-uploader"? %>
                 
                 <br>
                 <br>
@@ -49,3 +51,4 @@
             </div>
           </div>
         </div>
+        

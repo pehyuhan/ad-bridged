@@ -1,15 +1,15 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
-<%#= will_paginate %>
-
 <ul class="users">
   <% @users.each do |user| %>
     <li>
-      <%= gravatar_for user, size: 50 %>
+      <a href="#">
+        <img class="img-responsive" <%= image_tag user.image_url %>
+      </a>
+      <%#= link_to icon('trash-o'), post_path(user), method: :delete, data: { confirm: 'Are you sure you want to delete this Post?'} %>
+      <%#= NOT WORKING %>
       <%= link_to user.name, user %>
     </li>
   <% end %>
 </ul>
-
-<%#= will_paginate %>

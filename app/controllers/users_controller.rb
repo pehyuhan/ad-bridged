@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation))
+    @user = User.new(params.require(:user).permit(:name, :email, :password, :password_confirmation, :image_url))
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to Ad_Bridged!"
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
   private
   
     def signed_in_user
-      redirect_to signin_url, notice: "Please sign in." unless signed_in?
+      redirect_to sign_in_url, notice: "Please sign in." unless signed_in?
     end
 
     def correct_user

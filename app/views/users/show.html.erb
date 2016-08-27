@@ -5,7 +5,9 @@
         <aside class="span4">
           <section>
             <h1>
-              <%= gravatar_for @user %>
+              <a href="#">
+                <img class="img-responsive" <%= image_tag @user.image_url %>
+              </a>
               <%= @user.name %>
             </h1>
           </section>
