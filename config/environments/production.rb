@@ -20,6 +20,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 # SMTP settings for gmail
 config.action_mailer.smtp_settings = {
+  :domain             => 'gmail.com',
  :address              => "smtp.gmail.com",
  :port                 => 587,
  :user_name            => 'ad.bridged123@gmail.com',
