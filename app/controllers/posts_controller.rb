@@ -9,6 +9,13 @@ class PostsController < ApplicationController
     end
       @posts = @posts.order(created_at: :desc).paginate(page:params[:page], per_page: 6 )
   end
+  
+  def send_enquiry
+    @post = Post.find(params[:id])
+    EnquiryMailer.enquiry(@post).deliver_now
+    
+    redirect_to posts_path
+  end
 
     def new
         @post = Post.new

@@ -2,9 +2,14 @@ Rails.application.routes.draw do
   
 scope ":locale", locale: /#{I18n.available_locales.join("|")}/  do
     
-    resources :posts
+    resources :posts do
+        member do
+            get :send_enquiry
+        end
+    end
     get 'tags/:tag', to: 'posts#index', as: "tag"
     root to: redirect("/%{locale}/posts", status: 302)
+    
     
     resources :users
     
