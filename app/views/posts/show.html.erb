@@ -1,12 +1,13 @@
 <div class="form-header">
   <div class="container">
     <div class='row'>
-      <div class='col-sm-8 col-sm-offset-2'>
+      <div class='col-sm-10 col-sm-offset-1'>
         <div class='panel panel-default'>
           <div class='panel-heading'>
             <div class='row'>
               <div class='col-sm-8'>
-                <%= current_user.name %>
+                <%= @post.user.name %>
+                <%= link_to "send enquiry", send_enquiry_post_path(@post) %>
               </div>
               <div class='col-sm-12 text-right'>
                 <span class='created_at'><%= link_to time_ago_in_words(@post.created_at), post_path(@post) %></span>
