@@ -11,8 +11,16 @@ class PostsController < ApplicationController
   end
   
   def send_enquiry
-    @post = Post.find(params[:id])
-    EnquiryMailer.enquiry(@post).deliver_now
+    begin
+      @post = Post.find(params[:id])
+      EnquiryMailer.enquiry(@post).deliver_now
+      flash[:notice] = "Email has been sent."
+      
+      @post.update_attribute(:number_of_enquiries, @post.number_of_enquiries + 1)
+      
+    rescue Net::SMTPAuthenticationError, Net::SMTPServerBusy, Net::SMTPSyntaxError, Net::SMTPFatalError, Net::SMTPUnknownError => e
+      flash[:success] = "Problems sending mail"
+    end
     
     redirect_to posts_path
   end
