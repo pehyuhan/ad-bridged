@@ -45,6 +45,31 @@
         </div>
         <!-- /.row -->
 
+        <!-- Filters -->
+        
+        <div class="row">
+            <div class="col-md-6 portfolio-item">
+                <div class="col-sd-3 portfolio-item form-inline">
+                    <div class="filter">
+                        <%= form_tag '', :method => :get do %>
+                        <%= select_tag "platform_type", options_for_select(platform_type), {prompt: '< Platform Type >', class: 'form-control'} %>
+                        <%= submit_tag 'Filter', class: "btn btn-default" %>
+                            <% end %>
+                    </div>
+                </div>
+                <div class="col-sd-3 portfolio-item form-inline">
+                    <div class="filter">
+                        <%= form_tag '', :method => :get do %>
+                        <%= select_tag "ad_type", options_for_select(ad_type), {prompt: '< Ad Type >', class: 'form-control'} %>
+                        <%= submit_tag 'Filter', class: "btn btn-default" %>
+                            <% end %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- /.row -->
+
     <!-- Projects Row -->
     <div class="row">
         <% @posts.each do |post| %>

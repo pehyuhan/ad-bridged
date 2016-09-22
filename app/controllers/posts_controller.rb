@@ -7,6 +7,7 @@ class PostsController < ApplicationController
     else
       @posts = Post.all
     end
+      @posts = Post.filter(params.slice(:platform_type, :ad_type))
       @posts = @posts.order(created_at: :desc).paginate(page:params[:page], per_page: 6 )
   end
   

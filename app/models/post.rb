@@ -9,6 +9,10 @@ class Post < ActiveRecord::Base
 
     has_many :taggings
     has_many :tags, through: :taggings
+    
+    include Filterable
+    scope :platform_type, -> (platform_type) { where platform_type: platform_type }
+    scope :ad_type, -> (ad_type) { where ad_type: ad_type }
 
     def all_tags=(names)
         self.tags = names.split(",").map do |name|
